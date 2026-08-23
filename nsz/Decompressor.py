@@ -275,8 +275,8 @@ def __getDecompressedNczSize(nspf):
         )
         sections.insert(0, fakeSection)
     nca_size = INCOMPRESSIBLE_HEADER_SIZE
-    for i in range(sectionCount):
-        nca_size += sections[i].size
+    for s in sections:
+        nca_size += s.size
     return nca_size
 
 
@@ -313,8 +313,8 @@ def __decompressNcz(
         )
         sections.insert(0, fakeSection)
     nca_size = INCOMPRESSIBLE_HEADER_SIZE
-    for i in range(sectionCount):
-        nca_size += sections[i].size
+    for s in sections:
+        nca_size += s.size
     pos = nspf.tell()
     blockMagic = nspf.read(8)
     nspf.seek(pos)
